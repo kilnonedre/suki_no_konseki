@@ -1,0 +1,17 @@
+{
+  "cSpell.words": [
+    "actix",
+    "chrono",
+    "clippy",
+    "dotenv",
+    "dotenvy",
+    "konseki",
+    "reqwest",
+    "rustls",
+    "serde",
+    "sqlx",
+    "suki",
+    "thiserror",
+    "utoipa"
+  ]
+}

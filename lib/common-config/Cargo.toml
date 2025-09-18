@@ -1,0 +1,9 @@
+[package]
+name = "common-config"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+env_logger = { workspace = true }
+log = { workspace = true }
+dotenvy = { workspace = true }
