@@ -1,1 +1,1 @@
-pub mod create_user_req;
+pub mod user_req;

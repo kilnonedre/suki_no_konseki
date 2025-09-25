@@ -18,8 +18,10 @@ utoipa-swagger-ui = { workspace = true }
 common-config = { workspace = true }
 common-db = { workspace = true }
 common-web = { workspace = true }
+common-type = { workspace = true }
 internal-clients = { workspace = true }
 log = { workspace = true }
 dotenvy = { workspace = true }
+argon2 = { workspace = true }
 
-migration-crm = { path = "../../migration/migration-crm" }
+migration-crm = { workspace = true }

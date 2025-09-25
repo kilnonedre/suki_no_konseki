@@ -1,0 +1,9 @@
+[package]
+name = "common-type"
+edition.workspace = true
+version.workspace = true
+
+[dependencies]
+serde = { workspace = true }
+utoipa = { workspace = true }
+sea-orm = { workspace = true }

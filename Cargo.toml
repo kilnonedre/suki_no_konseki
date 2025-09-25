@@ -7,7 +7,9 @@ edition = "2021"
 members = [
     "app/svc-crm",
     "lib/common-config",
-    "lib/common-db", "lib/common-misc",
+    "lib/common-db",
+    "lib/common-misc",
+    "lib/common-type",
     "lib/common-web",
     "lib/internal-clients",
     "migration/migration-crm",
@@ -35,6 +37,7 @@ sea-orm = { version = "1.1", features = [
     "macros",
 ] }
 
+
 utoipa = { version = "5", features = ["uuid", "chrono"] }
 utoipa-actix-web = "0.1"
 utoipa-swagger-ui = { version = "9", features = ["actix-web"] }
@@ -42,11 +45,13 @@ reqwest = { version = "0.12", features = ["json", "rustls-tls"] }
 anyhow = "1"
 thiserror = "1"
 
+dotenvy = "0.15.7"
+sea-orm-migration = "1.1.16"
+argon2 = "0.5.3"
+
 common-config = { path = "lib/common-config" }
 common-db = { path = "lib/common-db" }
 common-web = { path = "lib/common-web" }
+common-type = { path = "lib/common-type" }
+migration-crm = { path = "migration/migration-crm" }
 internal-clients = { path = "lib/internal-clients" }
-
-dotenvy = "0.15.7"
-
-sea-orm-migration = "1.1.16"
