@@ -1,8 +1,8 @@
 use serde::Deserialize;
 use utoipa::ToSchema;
 
-#[derive(Deserialize, ToSchema)]
-pub struct UserReq {
+#[derive(Debug, Deserialize, ToSchema, Clone)]
+pub struct UserBase {
     /// 用户名
     #[schema(example = "xxx")]
     pub username: String,
@@ -15,10 +15,6 @@ pub struct UserReq {
     #[schema(example = "13111111111")]
     pub phone: Option<String>,
 
-    /// 密码
-    #[schema(example = "xxxxxxxxx")]
-    pub password: String,
-
     /// 显示名称
     #[schema(example = "xxxxxxxxx")]
     pub display_name: Option<String>,
@@ -26,4 +22,21 @@ pub struct UserReq {
     /// 角色
     #[schema(example = "xxxxxxxxx")]
     pub role: String,
+}
+
+#[derive(Debug, Deserialize, ToSchema, Clone)]
+pub struct CreateUserReq {
+    #[serde(flatten)]
+    pub base: UserBase,
+
+    /// 密码
+    #[schema(example = "xxxxxxxxx")]
+    pub password: String,
+}
+
+/// 全量更新（PUT）：公共字段（不含密码）
+#[derive(Debug, Deserialize, ToSchema, Clone)]
+pub struct UpdateUserReq {
+    #[serde(flatten)]
+    pub base: UserBase,
 }

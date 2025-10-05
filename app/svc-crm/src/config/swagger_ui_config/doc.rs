@@ -1,17 +1,22 @@
 use utoipa::OpenApi;
 
 use crate::config::swagger_ui_config::security::BearerSecurity;
-use crate::r#type::{request::user_req::UserReq, response::user_resp::UserResp};
+use crate::r#type::request::user_req::UpdateUserReq;
+use crate::r#type::{request::user_req::CreateUserReq, response::user_resp::UserResp};
 
 use crate::controller;
 
 #[derive(OpenApi)]
 #[openapi(
     paths(
-        controller::user_controller::create_user
+        controller::user_controller::create,
+        controller::user_controller::read,
+        controller::user_controller::update,
+        controller::user_controller::delete,
+        controller::user_controller::list,
     ),
     components(
-        schemas(UserResp, UserReq)
+        schemas(UserResp, CreateUserReq, UpdateUserReq)
     ),
     tags(
         (name = "UsersController", description = "用户接口面板")

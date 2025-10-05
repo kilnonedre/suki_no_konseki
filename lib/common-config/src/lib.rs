@@ -4,34 +4,7 @@ pub fn init_logger() {
 }
 
 use std::env;
-use std::path::{Path, PathBuf};
-
-/// 在当前工作目录向上查找文件
-fn try_load_upwards(file: &str) {
-    let mut dir = std::env::current_dir().ok();
-    while let Some(d) = dir.clone() {
-        let candidate = d.join(file);
-        if candidate.exists() {
-            let _ = dotenvy::from_filename(&candidate);
-            break;
-        }
-        dir = d.parent().map(|p| p.to_path_buf());
-    }
-}
-
-/// 从指定目录加载文件（如果存在）
-fn try_load_exact(dir: impl AsRef<Path>, file: &str) {
-    let path = dir.as_ref().join(file);
-    if path.exists() {
-        let _ = dotenvy::from_filename(path);
-    }
-}
-
-/// 计算服务目录（假设二进制在 services/<svc>/src/main.rs）
-fn service_dir() -> Option<PathBuf> {
-    // CARGO_MANIFEST_DIR 指向当前 crate 的目录（就是服务目录）
-    env::var("CARGO_MANIFEST_DIR").ok().map(PathBuf::from)
-}
+use std::path::PathBuf;
 
 /// 统一加载顺序（从低到高优先级，后者覆盖前者 *文件之间*；
 /// 但**已存在的 OS 环境变量优先于文件**）

@@ -2,4 +2,6 @@
 
 pub mod prelude;
 
+pub mod user_profiles;
 pub mod users;
+pub mod users_aud;

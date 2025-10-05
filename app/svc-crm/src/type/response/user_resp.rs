@@ -1,4 +1,4 @@
-use common_type::entity_status::EntityStatus;
+use common_type::EntityStatus;
 use sea_orm::prelude::DateTimeWithTimeZone;
 use serde::Serialize;
 use utoipa::ToSchema;
