@@ -16,7 +16,6 @@ use crate::{
 };
 use actix_web::{web, App, HttpServer};
 use common_config::{init_logger, load_env};
-use common_grpc::MyGreeterClient;
 use migration_crm::{Migrator, MigratorTrait};
 
 #[actix_web::main]

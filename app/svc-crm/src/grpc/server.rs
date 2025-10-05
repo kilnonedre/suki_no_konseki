@@ -1,4 +1,3 @@
-use common_grpc::MyGreeterClient;
 use tonic::{transport::Server, Request, Response, Status};
 
 use common_grpc::crm::greeter_server::{Greeter, GreeterServer};

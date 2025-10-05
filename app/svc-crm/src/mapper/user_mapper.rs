@@ -4,7 +4,6 @@ use sea_orm::{ActiveValue::Set, IntoActiveModel};
 
 use crate::{
     entity::{users, users_aud},
-    env::SYS_ID,
     r#type::{
         request::user_req::{CreateUserReq, UpdateUserReq},
         response::user_resp::UserResp,
