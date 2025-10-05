@@ -1,0 +1,9 @@
+[package]
+name = "svc-auth"
+edition.workspace = true
+version.workspace = true
+
+[dependencies]
+common-grpc = { workspace = true }
+
+tokio = { workspace = true }

@@ -19,10 +19,15 @@ common-config = { workspace = true }
 common-db = { workspace = true }
 common-web = { workspace = true }
 common-type = { workspace = true }
+common-grpc = { workspace = true }
 internal-clients = { workspace = true }
 log = { workspace = true }
 dotenvy = { workspace = true }
 argon2 = { workspace = true }
 once_cell = { workspace = true }
+# jsonwebtoken = { workspace = true }
+tonic = { workspace = true }
+prost = { workspace = true }
+tonic-prost = { workspace = true }
 
 migration-crm = { workspace = true }
