@@ -10,12 +10,13 @@ mod r#type;
 mod util;
 
 use crate::{
-    config::swagger_ui_config::{doc::build_openapi, ui::configure},
+    config::swagger_ui::doc::build_openapi,
     env::{APP_PORT, DB_HOST, DB_NAME, DB_PASSWORD, DB_PORT, DB_SCHEMA, DB_USER},
     grpc::server::start_grpc_server,
+    route::build_api_route,
 };
 use actix_web::{web, App, HttpServer};
-use common_config::{init_logger, load_env};
+use common_config::{configure, init_logger, load_env};
 use migration_crm::{Migrator, MigratorTrait};
 
 #[actix_web::main]
@@ -43,7 +44,7 @@ async fn main() -> std::io::Result<()> {
     let http_server = HttpServer::new(move || {
         App::new()
             .app_data(db_data.clone())
-            .configure(configure(openapi.clone()))
+            .configure(configure(openapi.clone(), build_api_route()))
     })
     .bind(("0.0.0.0", *APP_PORT))?
     .run();

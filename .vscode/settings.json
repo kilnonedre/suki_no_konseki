@@ -9,6 +9,7 @@
     "iden",
     "jsonwebtoken",
     "konseki",
+    "prost",
     "reqwest",
     "rustls",
     "serde",

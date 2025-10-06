@@ -7,3 +7,7 @@ edition.workspace = true
 env_logger = { workspace = true }
 log = { workspace = true }
 dotenvy = { workspace = true }
+utoipa = { workspace = true }
+serde = { workspace = true }
+actix-web = { workspace = true }
+utoipa-swagger-ui = { workspace = true }

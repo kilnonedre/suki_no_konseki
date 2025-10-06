@@ -5,5 +5,11 @@ version.workspace = true
 
 [dependencies]
 common-grpc = { workspace = true }
+common-config = { workspace = true }
+common-db = { workspace = true }
 
 tokio = { workspace = true }
+actix-web = { workspace = true }
+utoipa = { workspace = true }
+once_cell = { workspace = true }
+uuid = { workspace = true }

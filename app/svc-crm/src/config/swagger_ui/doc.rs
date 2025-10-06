@@ -1,6 +1,6 @@
+use common_config::BearerSecurity;
 use utoipa::OpenApi;
 
-use crate::config::swagger_ui_config::security::BearerSecurity;
 use crate::r#type::request::user_req::UpdateUserReq;
 use crate::r#type::{request::user_req::CreateUserReq, response::user_resp::UserResp};
 
