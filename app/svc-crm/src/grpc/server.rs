@@ -1,21 +1,22 @@
 use tonic::{transport::Server, Request, Response, Status};
 
-use common_grpc::crm::greeter_server::{Greeter, GreeterServer};
-use common_grpc::crm::{HelloReply, HelloRequest};
-
+use common_grpc::crm::{
+    login_server::{Login, LoginServer},
+    LoginVerifyReq, LoginVerifyResp,
+};
 #[derive(Debug, Default)]
-pub struct MyGreeter {}
+pub struct CrmServer {}
 
 #[tonic::async_trait]
-impl Greeter for MyGreeter {
-    async fn say_hello(
+impl Login for CrmServer {
+    async fn verify(
         &self,
-        request: Request<HelloRequest>,
-    ) -> Result<Response<HelloReply>, Status> {
+        request: Request<LoginVerifyReq>,
+    ) -> Result<Response<LoginVerifyResp>, Status> {
         println!("Got a request: {:?}", request);
 
-        let reply = HelloReply {
-            message: format!("Hello {}!", request.into_inner().name),
+        let reply = LoginVerifyResp {
+            id: "00000000-0000-0000-0000-000000000001".to_string(),
         };
 
         Ok(Response::new(reply))
@@ -24,10 +25,10 @@ impl Greeter for MyGreeter {
 
 pub async fn start_grpc_server(addr: &str) {
     let addr = addr.parse().expect("Failed to parse socket address");
-    let greeter = MyGreeter::default();
+    let crm = CrmServer::default();
 
     if let Err(e) = Server::builder()
-        .add_service(GreeterServer::new(greeter))
+        .add_service(LoginServer::new(crm))
         .serve(addr)
         .await
     {

@@ -4,7 +4,8 @@ version = "0.1.0"
 edition = "2021"
 
 [workspace]
-members = [ "app/svc-auth",
+members = [
+    "app/svc-auth",
     "app/svc-crm",
     "lib/common-config",
     "lib/common-db",
@@ -50,7 +51,7 @@ dotenvy = "0.15.7"
 sea-orm-migration = "1.1.16"
 argon2 = "0.5.3"
 once_cell = "1.21.3"
-jsonwebtoken = "10.0.0"
+jsonwebtoken = { version = "10.0.0", features = ["aws_lc_rs"] }
 tonic = "0.14.2"
 prost = "0.14.1"
 tonic-prost = "0.14.2"
@@ -63,6 +64,3 @@ common-type = { path = "lib/common-type" }
 common-grpc = { path = "lib/common-grpc" }
 migration-crm = { path = "migration/migration-crm" }
 internal-clients = { path = "lib/internal-clients" }
-
-[dependencies]
-tonic-prost.workspace = true

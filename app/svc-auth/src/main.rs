@@ -1,6 +1,10 @@
 mod config;
+mod controller;
 mod env;
 mod route;
+mod service;
+mod r#type;
+mod util;
 
 use actix_web::{web, App, HttpServer};
 use common_config::{configure, init_logger, load_env};

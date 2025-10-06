@@ -2,14 +2,15 @@ syntax = "proto3";
 
 package crm;
 
-service Greeter {
-    rpc SayHello (HelloRequest) returns (HelloReply);
+service Login {
+    rpc verify (LoginVerifyReq) returns (LoginVerifyResp);
 }
 
-message HelloRequest {
-   string name = 1;
+message LoginVerifyReq {
+   string account = 1;
+   string password = 2;
 }
 
-message HelloReply {
-    string message = 1;
+message LoginVerifyResp {
+    string id = 1;
 }

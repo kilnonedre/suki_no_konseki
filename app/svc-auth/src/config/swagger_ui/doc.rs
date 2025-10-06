@@ -1,20 +1,21 @@
-use common_config::BearerSecurity;
+use crate::controller;
 use utoipa::OpenApi;
 
 #[derive(OpenApi)]
 #[openapi(
     paths(
+        controller::auth_controller::login,
     ),
     components(
         schemas()
     ),
     tags(
-        (name = "UsersController", description = "用户接口面板")
+        (name = "AuthController", description = "登录接口面板")
     ),
-    modifiers(&BearerSecurity),
-    security(
-        ("bearerAuth" = []),
-    )
+    // modifiers(&BearerSecurity),
+    // security(
+    //     ("bearerAuth" = []),
+    // )
 )]
 pub struct ApiDoc;
 
