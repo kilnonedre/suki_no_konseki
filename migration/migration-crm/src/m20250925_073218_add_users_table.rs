@@ -206,6 +206,17 @@ impl MigrationTrait for Migration {
 
     async fn down(&self, manager: &SchemaManager) -> Result<(), DbErr> {
         manager
+            .drop_index(
+                Index::drop()
+                    .name("idx_users_aud_ent_id")
+                    .table(TableRef::SchemaTable(
+                        Alias::new(&*DB_SCHEMA).into_iden(),
+                        UsersAud::Table.into_iden(),
+                    ))
+                    .to_owned(),
+            )
+            .await?;
+        manager
             .drop_foreign_key(
                 ForeignKey::drop()
                     .name("fk_users_aud_ent_id__users_id")

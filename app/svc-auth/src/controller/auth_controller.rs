@@ -1,4 +1,4 @@
-use actix_web::{web, HttpResponse, Responder};
+use actix_web::{http::header, web, HttpRequest, HttpResponse, Responder};
 use common_type::ResponseT;
 use common_web::ApiError;
 use sea_orm::DatabaseConnection;
@@ -32,8 +32,9 @@ use crate::{
 )]
 pub async fn login(
     db: web::Data<DatabaseConnection>,
+    req: HttpRequest,
     body: web::Json<LoginReq>,
 ) -> Result<impl Responder, ApiError> {
-    let resp = auth_service::login(db.get_ref(), &body.0).await?;
+    let resp = auth_service::login(db.get_ref(), req, &body.0).await?;
     Ok(HttpResponse::Ok().json(resp))
 }

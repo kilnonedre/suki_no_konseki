@@ -23,6 +23,17 @@ edition = "2021"
 version = "0.1.0"
 
 [workspace.dependencies]
+common-config = { path = "lib/common-config" }
+common-db = { path = "lib/common-db" }
+common-web = { path = "lib/common-web" }
+common-type = { path = "lib/common-type" }
+common-grpc = { path = "lib/common-grpc" }
+
+migration-crm = { path = "migration/migration-crm" }
+migration-auth = { path = "migration/migration-auth" }
+
+internal-clients = { path = "lib/internal-clients" }
+
 actix-web = "4"
 actix-cors = "0.7"
 serde = { version = "1", features = ["derive"] }
@@ -57,10 +68,8 @@ prost = "0.14.1"
 tonic-prost = "0.14.2"
 tonic-prost-build = "0.14.2"
 
-common-config = { path = "lib/common-config" }
-common-db = { path = "lib/common-db" }
-common-web = { path = "lib/common-web" }
-common-type = { path = "lib/common-type" }
-common-grpc = { path = "lib/common-grpc" }
-migration-crm = { path = "migration/migration-crm" }
-internal-clients = { path = "lib/internal-clients" }
+base64 = "0.22.1"
+blake3 = "1.8.2"
+rand = "0.9.2"
+
+[dependencies]

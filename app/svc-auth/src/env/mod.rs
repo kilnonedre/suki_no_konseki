@@ -31,3 +31,6 @@ pub static SYS_ID: Lazy<Uuid> = Lazy::new(|| {
     let s = env::var("SYS_ID").expect("❌ 必须设置环境变量 SYS_ID");
     Uuid::parse_str(&s).expect("❌ SYS_ID 必须是合法的 UUID")
 });
+
+pub static LOG_LEVEL: Lazy<String> =
+    Lazy::new(|| env::var("LOG_LEVEL").expect("❌ 必须设置环境变量 LOG_LEVEL"));

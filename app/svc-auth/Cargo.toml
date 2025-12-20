@@ -10,6 +10,8 @@ common-config = { workspace = true }
 common-db = { workspace = true }
 common-web = { workspace = true }
 
+migration-auth = { workspace = true }
+
 tokio = { workspace = true }
 actix-web = { workspace = true }
 utoipa = { workspace = true }
@@ -21,3 +23,6 @@ chrono = { workspace = true }
 jsonwebtoken = { workspace = true }
 sea-orm = { workspace = true }
 log = { workspace = true }
+base64 = { workspace = true }
+blake3 = { workspace = true }
+rand = { workspace = true }
